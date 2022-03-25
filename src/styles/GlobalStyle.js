@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-    :root { 
+    :root {
         --primary-heading-font-size:13px;
         --primary-heading-font-weight:700px;
         --primary-paragraph-font-size:15px;
@@ -9,19 +9,19 @@ export const GlobalStyles = createGlobalStyle`
         --primary-paragraph-line-height:21px;
         --primary-small-label-font-size:13px;
         --primary-hover-background-color:#e2e0e0;
-        --primar-quora-logo-color:#B92B27;
+        --primar-quora-logo-color:#095191;
         --primary-light-paragraph-font-color:#939598;
         --primary-border-color:rgb(230,231,232);
         --primary-body-background-color:rgb(241,242,242);
      }
-        
+
     *, *::before, *::after{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
-        
+
     }
 
     body{

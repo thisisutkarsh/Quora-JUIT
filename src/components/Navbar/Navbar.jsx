@@ -30,6 +30,7 @@ import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { postData } from "../../utils/api/postData";
 import { Search } from "./search/Search";
+import logoImg from "./quora-logo.png";
 
 const style = {
   position: "absolute",
@@ -188,10 +189,7 @@ export const Navbar = () => {
       <div className="qNav">
         <Link to="/home">
           <div className="qNav_logo">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/250px-Quora_logo_2015.svg.png"
-              alt=""
-            />
+            <img src={logoImg} alt="Quora-JUIT logo" />
           </div>
         </Link>
         <div className="qNav_icons">
@@ -304,12 +302,16 @@ export const Navbar = () => {
             <input
               className="NavSearch"
               type="text"
-              placeholder="Search Quora"
+              placeholder="Search Quora-JUIT"
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
             />
-            <Search handleOpen={handleOpen} setSearch={setSearch} search={search} />
+            <Search
+              handleOpen={handleOpen}
+              setSearch={setSearch}
+              search={search}
+            />
           </div>
         </div>
         <div className="qNav_Rem">
@@ -428,7 +430,9 @@ export const Navbar = () => {
                   </g>
                 </svg>
               </ListItemIcon>
-              <Link to='/chat'><div className="text-menu"> Messages</div></Link>
+              <Link to="/chat">
+                <div className="text-menu"> Messages</div>
+              </Link>
             </MenuItem>
             <MenuItem>
               <ListItemIcon>
