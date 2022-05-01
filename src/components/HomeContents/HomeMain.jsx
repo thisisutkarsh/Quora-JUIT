@@ -10,7 +10,8 @@ export const HomeMain = () => {
       <StyledHome>
         {/* <CreateSpace className="space" /> */}
         <div className="QandA">
-          <img src={place} alt="Home placeholder"></img>
+          {/* <img src={place} alt="Home placeholder"></img> */}
+          <QandA />
         </div>
         {/* <SpacesTofollow className="follow" /> */}
       </StyledHome>

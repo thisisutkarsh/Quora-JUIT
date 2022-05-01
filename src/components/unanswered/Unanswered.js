@@ -7,8 +7,8 @@ const Unanswered = () => {
   return (
     <Container>
       <div className="sub-container">
-        {/* <QandA flag /> */}
-        <img src={qPlace}></img>
+        <QandA flag />
+        {/* <img src={qPlace}></img> */}
       </div>
     </Container>
   );
