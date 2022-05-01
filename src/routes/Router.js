@@ -21,94 +21,89 @@ import { Error } from "../components/error/Error.jsx";
 import Unanswered from "../components/unanswered/Unanswered";
 
 const Router = () => {
-    const user = useSelector(selectUser);
-    const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                dispatch(login(user));
-            } else {
-                dispatch(logout());
-            }
-        });
-    }, [dispatch]);
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(login(user));
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
 
-    return (
-        <Switch>
-            {/* Restricted Route will not allow LoggedIn User to access login page */}
+  return (
+    <Switch>
+      {/* Restricted Route will not allow LoggedIn User to access login page */}
 
-            <RestrictedRoute
-                restricted={true}
-                path="/login"
-                component={Login}
-                exact
-            />
-            <Route path="/" exact>
-                {user ? <Redirect to="/home" /> : <Redirect to="/login" />}
-            </Route>
+      <RestrictedRoute restricted={true} path="/" component={Login} exact />
+      {/* <Route path="/" exact>
+        {user ? <Redirect to="/home" /> : <Redirect to="/" />}
+      </Route> */}
 
-            <Route path="/home" exact>
-                {user ? (
-                    <>
-                        <Navbar />
-                        <Home />
-                    </>
-                ) : (
-                    <>
-                        <Redirect to="/login" />
-                    </>
-                )}
-            </Route>
+      <Route path="/home" exact>
+        {user ? (
+          <>
+            <Navbar />
+            <Home />
+          </>
+        ) : (
+          <>
+            <Redirect to="/" />
+          </>
+        )}
+      </Route>
 
-            <Route exact path="/question/:question_id">
-                {user ? (
-                    <>
-                        <Navbar />
-                        <PostPage />
-                    </>
-                ) : (
-                    <Redirect to="/login" />
-                )}
-            </Route>
+      <Route exact path="/question/:question_id">
+        {user ? (
+          <>
+            <Navbar />
+            <PostPage />
+          </>
+        ) : (
+          <Redirect to="/" />
+        )}
+      </Route>
 
-            <Route path="/notifications" exact>
-                {user ? (
-                    <>
-                        <Navbar />
-                        <Notification />
-                    </>
-                ) : (
-                    <Redirect to="/login" />
-                )}
-            </Route>
+      <Route path="/notifications" exact>
+        {user ? (
+          <>
+            <Navbar />
+            <Notification />
+          </>
+        ) : (
+          <Redirect to="/" />
+        )}
+      </Route>
 
-            <Route path="/chat" exact>
-                {user ? (
-                    <>
-                        <Navbar />
-                        <Chat />
-                    </>
-                ) : (
-                    <Redirect to="/login" />
-                )}
-            </Route>
-            <Route path="/answers" exact>
-                {user ? (
-                    <>
-                        <Navbar />
-                        <Unanswered />
-                    </>
-                ) : (
-                    <Redirect to="/login" />
-                )}
-            </Route>
-            <Route path="*">
-                {/* <Navbar /> */}
-                <Error />
-            </Route>
-        </Switch>
-    );
+      <Route path="/chat" exact>
+        {user ? (
+          <>
+            <Navbar />
+            <Chat />
+          </>
+        ) : (
+          <Redirect to="/" />
+        )}
+      </Route>
+      <Route path="/answers" exact>
+        {user ? (
+          <>
+            <Navbar />
+            <Unanswered />
+          </>
+        ) : (
+          <Redirect to="/" />
+        )}
+      </Route>
+      <Route path="*">
+        {/* <Navbar /> */}
+        <Error />
+      </Route>
+    </Switch>
+  );
 };
 
 export default Router;
