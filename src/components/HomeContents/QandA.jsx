@@ -5,6 +5,8 @@ import { AllComments } from "./AllComments";
 import Answers from "./Answers";
 import { IconGrp } from "./IconGrp";
 import { Link } from "react-router-dom";
+import { selectUser } from "../../features/userSlice";
+import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
@@ -13,6 +15,7 @@ export const QandA = ({ flag }) => {
   const [showComments, setShowComments] = useState("");
   const [commentToogle, setCommentToogle] = useState(false);
   const [allQuestion, setAllQuestions] = useState([]);
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     const dbRef = db.collection("questions/");
@@ -48,7 +51,14 @@ export const QandA = ({ flag }) => {
       {allQuestion.map((e, i) => (
         <Container key={i}>
           <div className="header">
-            <img src={e.admin_img} alt="q_avatar" />
+            <img
+              src={
+                user
+                  ? user.photoURL
+                  : "http://www.canada-work.com/_/rsrc/1531284300421/assistants/female_generic_profile.png "
+              }
+              alt="q_avatar"
+            />
             <div className="user">
               <p>
                 {e.admin_name || e.admin_email} -
@@ -90,7 +100,7 @@ const Container = styled.div`
   width: 35.625rem;
   margin-left: 1rem;
   margin-top: 1rem;
-  background-color: #095191;
+  background-color: #ffffff;
   border: 0.5px solid rgb(222, 224, 225);
   box-shadow: 0px 0px 5px rgb(222, 224, 225);
   border-radius: 3px;

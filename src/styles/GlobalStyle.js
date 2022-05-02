@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
         --primary-paragraph-line-height:21px;
         --primary-small-label-font-size:13px;
         --primary-hover-background-color:#e2e0e0;
-        --primar-quora-logo-color:#095191;
+        --primar-quora-logo-color:#B92B27;
         --primary-light-paragraph-font-color:#939598;
         --primary-border-color:rgb(230,231,232);
         --primary-body-background-color:rgb(241,242,242);

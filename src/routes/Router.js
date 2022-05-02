@@ -1,24 +1,17 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route, Switch } from "react-router";
 import { Home, Login } from "../components";
-
-import { login, logout, selectUser } from "../features/userSlice";
-import { useDispatch } from "react-redux";
-import { auth } from "../config/firebase.config";
-import { PostPage } from "../components/post-page/PostPage";
-import { HomeMain } from "../components/HomeContents/HomeMain";
-import { Notification } from "../components/Notifications/Notification";
-import { Navbar } from "../components/Navbar/Navbar";
-import Chat from "../components/sendMessage/Chat";
-
-import PrivateRoute from "./PrivateRoute";
-import { Link } from "react-router-dom";
-import RestrictedRoute from "./RestrictedRoute";
-import { PostData } from "../components/dbTest/PostData";
-import { TextEditor } from "../components/post-page/Editor";
 import { Error } from "../components/error/Error.jsx";
+import { Navbar } from "../components/Navbar/Navbar";
+import SideNav from "../components/Navbar/SideNav.jsx";
+import { Notification } from "../components/Notifications/Notification";
+import { PostPage } from "../components/post-page/PostPage";
+import Chat from "../components/sendMessage/Chat";
 import Unanswered from "../components/unanswered/Unanswered";
+import { auth } from "../config/firebase.config";
+import { login, logout, selectUser } from "../features/userSlice";
+import RestrictedRoute from "./RestrictedRoute";
 
 const Router = () => {
   const user = useSelector(selectUser);
@@ -47,6 +40,7 @@ const Router = () => {
         {user ? (
           <>
             <Navbar />
+            <SideNav />
             <Home />
           </>
         ) : (

@@ -1,37 +1,28 @@
-import { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import LanguageIcon from "@mui/icons-material/Language";
-import { Avatar, Button, Input, FormHelperText } from "@mui/material";
 // import Modal from "react-modal";
 import { ExpandMore } from "@mui/icons-material";
-import "./navbar.css";
-// import { Topic } from "./Topic";
-import * as React from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import { Avatar, Button, Input } from "@mui/material";
+import MuiAlert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import { v4 as uuid } from "uuid";
-import { useSelector, useDispatch } from "react-redux";
-import { login, logout, selectUser } from "../../features/userSlice";
-import { NavLink, useLocation, Link } from "react-router-dom";
-import { auth } from "../../config/firebase.config";
+import Divider from "@mui/material/Divider";
+import ListItemIcon from "@mui/material/ListItemIcon";
 // import { Dropdown } from "./Dropdown";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import { Logout, ContentCopy } from "@mui/icons-material";
-// import IconButton from '@mui/material/IconButton';
-import Typography from "@mui/material/Typography";
-import ListItemText from "@mui/material/ListItemText";
-import Paper from "@mui/material/Paper";
+import Modal from "@mui/material/Modal";
 import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
+// import { Topic } from "./Topic";
+import * as React from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
+import { v4 as uuid } from "uuid";
+import { auth } from "../../config/firebase.config";
+import { login, logout, selectUser } from "../../features/userSlice";
 import { postData } from "../../utils/api/postData";
-import { Search } from "./search/Search";
+import "./navbar.css";
 import logoImg from "./quora-logo.png";
-
+import { Search } from "./search/Search";
 const style = {
   position: "absolute",
   top: "50%",
@@ -216,7 +207,7 @@ export const Navbar = () => {
             </div>
           </NavLink>
 
-          <div className="qNav_icon">
+          {/* <div className="qNav_icon">
             <div className="svgIcon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -234,7 +225,7 @@ export const Navbar = () => {
                 </g>
               </svg>
             </div>
-          </div>
+          </div> */}
           <NavLink
             to="/answers"
             className={(isActive) => "nav-link" + (isActive ? " selected" : "")}
@@ -256,7 +247,7 @@ export const Navbar = () => {
               </div>
             </div>
           </NavLink>
-          <div className="qNav_icon">
+          {/* <div className="qNav_icon">
             <div className="svgIcon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -271,8 +262,8 @@ export const Navbar = () => {
                 />
               </svg>
             </div>
-          </div>
-          <NavLink
+          </div> */}
+          {/* <NavLink
             to="/notifications"
             className={(isActive) => "nav-link" + (isActive ? " selected" : "")}
           >
@@ -292,7 +283,7 @@ export const Navbar = () => {
                 </svg>
               </div>
             </div>
-          </NavLink>
+          </NavLink> */}
         </div>
         <div>
           <div className="qNav_input">
@@ -434,7 +425,7 @@ export const Navbar = () => {
                 <div className="text-menu"> Messages</div>
               </Link>
             </MenuItem>
-            <MenuItem>
+            {/* <MenuItem>
               <ListItemIcon>
                 <svg width="24" height="24" viewBox="0 0 24 24">
                   <path
@@ -542,18 +533,21 @@ export const Navbar = () => {
             </MenuItem>
             <MenuItem sx={{ height: 30, fontSize: "5" }}>
               <div className="text-sub-menu "> Help</div>
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem
               onClick={() => auth.signOut()}
               sx={{ height: 30, fontSize: "5" }}
             >
+              <ListItemIcon>
+                {/* <img src={log} width="25px" height="25px"></img> */}
+              </ListItemIcon>
               <div className="text-sub-menu "> Logout</div>
             </MenuItem>
           </Menu>
 
-          <div className="svgIcon">
+          {/* <div className="svgIcon">
             <LanguageIcon sx={{ width: 26, height: 26 }} />
-          </div>
+          </div> */}
           <Button
             sx={{
               width: "115px",

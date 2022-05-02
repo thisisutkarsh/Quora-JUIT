@@ -20,10 +20,10 @@
 }
 
 .qNav_logo>img {
-  height: 20%;
+  height: 25px;
   margin-right: 10px;
-  width: 89%;
-  margin-top: 10px;
+  width: 87px;
+  margin-top: 5px;
   cursor: pointer;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .qNav_icons>.active>.svgIcon {
-  fill: #0a66b7;
+  fill: #8f1f1b;
 }
 
 .qNav_icon>.svgIcon {
@@ -90,12 +90,12 @@
 }
 
 .qNav_Rem>.svgIcon:hover {
-  color: #095191;
+  color: #b92b27;
 }
 
 .qNav_Rem>.MuiButton-root {
   color: white;
-  background: #095191;
+  background: #b92b27;
   text-transform: inherit;
   border-radius: 20px;
   margin-left: 25px;
@@ -103,16 +103,16 @@
 
 .qNav_Rem>.MuiButton-root:hover {
   color: #ffffff;
-  background: #043158;
+  background: #8f1f1b;
 }
 
 .active .svgIcon {
-  color: #095191;
-  fill: #095191;
+  color: #b92b27;
+  fill: #b92b27;
 }
 
 .active {
-  border-bottom: 3px solid #095191;
+  border-bottom: 3px solid #b92b27;
   border-radius: 3px;
 }
 

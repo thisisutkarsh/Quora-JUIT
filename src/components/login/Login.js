@@ -18,11 +18,11 @@ const Login = () => {
     } catch (error) {}
   };
 
-  const handleLoginWithFacebook = async () => {
-    try {
-      await auth.signInWithPopup(facebookProvider);
-    } catch (error) {}
-  };
+  // const handleLoginWithFacebook = async () => {
+  //   try {
+  //     await auth.signInWithPopup(facebookProvider);
+  //   } catch (error) {}
+  // };
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -95,7 +95,7 @@ const Login = () => {
 
               <p>Continue with Google</p>
             </LoginWith>
-            <LoginWith onClick={handleLoginWithFacebook}>
+            {/* <LoginWith onClick={handleLoginWithFacebook}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
                   className="icon_svg-fill_as_stroke"
@@ -107,7 +107,7 @@ const Login = () => {
               </svg>
 
               <p>Continue with Facebook</p>
-            </LoginWith>
+            </LoginWith> */}
             <SignUp>Sign up with Email</SignUp>
             <Policy>
               By continuing you indicate that you agree to Quora’s Terms of
