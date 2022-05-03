@@ -12,7 +12,11 @@ export const GlobalStyles = createGlobalStyle`
         --primar-quora-logo-color:#B92B27;
         --primary-light-paragraph-font-color:#939598;
         --primary-border-color:rgb(230,231,232);
-        --primary-body-background-color:rgb(241,242,242);
+        --primary-body-background-color:#e9ebee;
+        --black: #09090c;
+        --grey: #a4b2bc;
+        --white: #fff;
+        --background: rgba(137, 171, 245, 0.37);
      }
 
     *, *::before, *::after{

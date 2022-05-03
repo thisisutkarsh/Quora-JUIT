@@ -54,6 +54,7 @@ const Router = () => {
         {user ? (
           <>
             <Navbar />
+            <SideNav />
             <PostPage />
           </>
         ) : (
@@ -65,6 +66,7 @@ const Router = () => {
         {user ? (
           <>
             <Navbar />
+            <SideNav />
             <Notification />
           </>
         ) : (
@@ -76,6 +78,7 @@ const Router = () => {
         {user ? (
           <>
             <Navbar />
+            <SideNav />
             <Chat />
           </>
         ) : (
@@ -86,6 +89,7 @@ const Router = () => {
         {user ? (
           <>
             <Navbar />
+            <SideNav />
             <Unanswered />
           </>
         ) : (
@@ -93,7 +97,8 @@ const Router = () => {
         )}
       </Route>
       <Route path="*">
-        {/* <Navbar /> */}
+        {/* <Navbar />
+            <SideNav /> */}
         <Error />
       </Route>
     </Switch>

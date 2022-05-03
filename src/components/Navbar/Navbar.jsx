@@ -21,8 +21,8 @@ import { auth } from "../../config/firebase.config";
 import { login, logout, selectUser } from "../../features/userSlice";
 import { postData } from "../../utils/api/postData";
 import "./navbar.css";
-import logoImg from "./quora-logo.png";
 import { Search } from "./search/Search";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -178,13 +178,9 @@ export const Navbar = () => {
   return (
     <div className="Nav">
       <div className="qNav">
-        <Link to="/home">
-          <div className="qNav_logo">
-            <img src={logoImg} alt="Quora-JUIT logo" />
-          </div>
-        </Link>
+        <Link to="/home"></Link>
         <div className="qNav_icons">
-          <NavLink
+          {/* <NavLink
             to="/home"
             className={(isActive) => "nav-link" + (isActive ? " selected" : "")}
           >
@@ -205,7 +201,7 @@ export const Navbar = () => {
                 </svg>
               </div>
             </div>
-          </NavLink>
+          </NavLink> */}
 
           {/* <div className="qNav_icon">
             <div className="svgIcon">
@@ -226,7 +222,7 @@ export const Navbar = () => {
               </svg>
             </div>
           </div> */}
-          <NavLink
+          {/* <NavLink
             to="/answers"
             className={(isActive) => "nav-link" + (isActive ? " selected" : "")}
           >
@@ -246,7 +242,7 @@ export const Navbar = () => {
                 </svg>
               </div>
             </div>
-          </NavLink>
+          </NavLink> */}
           {/* <div className="qNav_icon">
             <div className="svgIcon">
               <svg
@@ -534,15 +530,15 @@ export const Navbar = () => {
             <MenuItem sx={{ height: 30, fontSize: "5" }}>
               <div className="text-sub-menu "> Help</div>
             </MenuItem> */}
-            <MenuItem
+            {/* <MenuItem
               onClick={() => auth.signOut()}
               sx={{ height: 30, fontSize: "5" }}
             >
               <ListItemIcon>
-                {/* <img src={log} width="25px" height="25px"></img> */}
+                <img src={log} width="25px" height="25px"></img>
               </ListItemIcon>
               <div className="text-sub-menu "> Logout</div>
-            </MenuItem>
+            </MenuItem> */}
           </Menu>
 
           {/* <div className="svgIcon">

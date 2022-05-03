@@ -106,7 +106,7 @@
   background: #8f1f1b;
 }
 
-.active .svgIcon {
+/* .active .svgIcon {
   color: #b92b27;
   fill: #b92b27;
 }
@@ -114,7 +114,7 @@
 .active {
   border-bottom: 3px solid #b92b27;
   border-radius: 3px;
-}
+} */
 
 /* modal CSS */
 

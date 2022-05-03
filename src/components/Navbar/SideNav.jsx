@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //All the svg files
-import logo from "./data/logo.svg";
+import logo from "./data/q-logo.png";
 import Home from "./data/home-solid.svg";
 import Team from "./data/social.svg";
 import Calender from "./data/sceduled.svg";
@@ -10,22 +10,30 @@ import Documents from "./data/draft.svg";
 import PowerOff from "./data/power-off-solid.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { login, logout, selectUser } from "../../features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../../config/firebase.config";
 
 const Container = styled.div`
   position: fixed;
 
-  .active {
+  .activem {
     border-right: 4px solid var(--white);
 
     img {
       filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
         brightness(103%) contrast(103%);
+
+      ${
+        "" /* filter: invert(3%) sepia(38%) saturate(6550%) hue-rotate(227deg)
+        brightness(87%) contrast(99%); */
+      }
     }
   }
 `;
 
 const Button = styled.button`
-  background-color: var(--black);
+  background-color: var(--white);
   border: none;
   width: 2.5rem;
   height: 2.5rem;
@@ -42,7 +50,7 @@ const Button = styled.button`
   &::before,
   &::after {
     content: "";
-    background-color: var(--white);
+    background-color: var(--black);
     height: 2px;
     width: 1rem;
     position: absolute;
@@ -61,7 +69,7 @@ const Button = styled.button`
 `;
 
 const SidebarContainer = styled.div`
-  background-color: var(--black);
+  background-color: var(--white);
   width: 3.5rem;
   height: 80vh;
   margin-top: 1rem;
@@ -71,13 +79,12 @@ const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-
-  position: relative;
+  justify-content: center;
+  ${"" /* position: relative; */}
 `;
 
 const Logo = styled.div`
-  width: 2rem;
+  width: 50px;
 
   img {
     width: 100%;
@@ -86,16 +93,16 @@ const Logo = styled.div`
 `;
 
 const SlickBar = styled.ul`
-  color: var(--white);
+  color: var(--black);
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--black);
+  background-color: var(--white);
 
   padding: 2rem 0;
 
-  position: absolute;
+  ${"" /* position: absolute; */}
   top: 6rem;
   left: 0;
 
@@ -106,7 +113,7 @@ const SlickBar = styled.ul`
 
 const Item = styled(NavLink)`
   text-decoration: none;
-  color: var(--white);
+  color: var(--black);
   width: 100%;
   padding: 1rem 0;
   cursor: pointer;
@@ -115,19 +122,38 @@ const Item = styled(NavLink)`
   padding-left: 1rem;
 
   &:hover {
-    border-right: 4px solid var(--white);
+    border-right: 4px solid #1a83ff;
 
     img {
-      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
-        brightness(103%) contrast(103%);
+      ${
+        "" /* filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
+        brightness(103%) contrast(103%); */
+      }
+      filter: invert(46%) sepia(76%) saturate(4340%) hue-rotate(199deg)
+        brightness(101%) contrast(102%);
+    }
+  }
+  &:active {
+    border-right: 4px solid #1a83ff;
+
+    img {
+      ${
+        "" /* filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
+        brightness(103%) contrast(103%); */
+      }
+      filter: invert(46%) sepia(76%) saturate(4340%) hue-rotate(199deg)
+        brightness(101%) contrast(102%);
     }
   }
 
   img {
-    width: 1.2rem;
+    width: 2rem;
     height: auto;
     filter: invert(92%) sepia(4%) saturate(1033%) hue-rotate(169deg)
       brightness(78%) contrast(85%);
+    ${
+      "" /* filter: invert(10%) sepia(7%) saturate(911%) hue-rotate(191deg) brightness(91%) contrast(93%); */
+    }
   }
 `;
 
@@ -151,8 +177,8 @@ const Profile = styled.div`
   justify-content: center;
   margin-left: ${(props) => (props.clicked ? "9rem" : "0")};
 
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
 
   transition: all 0.3s ease;
 
@@ -221,69 +247,53 @@ const Logout = styled.button`
 const Sidebar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+  const user = useSelector(selectUser);
 
   const [profileClick, setprofileClick] = useState(false);
   const handleProfileClick = () => setprofileClick(!profileClick);
 
   return (
     <Container>
-      <Button clicked={click} onClick={() => handleClick()}>
-        Click
-      </Button>
+      {/* <Button clicked={click} onClick={() => handleClick()}></Button> */}
       <SidebarContainer>
-        <Logo>
-          <img src={logo} alt="logo" />
-        </Logo>
+        <NavLink to="/home">
+          <Logo>
+            <img src={logo} alt="logo" />
+          </Logo>
+        </NavLink>
         <SlickBar clicked={click}>
           <Item
             onClick={() => setClick(false)}
             exact
-            activeClassName="active"
-            to="/"
+            activemClassName="activem"
+            to="/home"
           >
             <img src={Home} alt="Home" />
             <Text clicked={click}>Home</Text>
           </Item>
+
           <Item
             onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/team"
+            activemClassName="activem"
+            to="/answers"
           >
-            <img src={Team} alt="Team" />
-            <Text clicked={click}>Team</Text>
+            <img src={Projects} alt="Answers" />
+            <Text clicked={click}>Answers</Text>
           </Item>
           <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/calender"
+            onClick={() => auth.signOut()}
+            // sx={{ height: 30, fontSize: "5" }}
+            activemClassName="activem"
+            to="/"
           >
-            <img src={Calender} alt="Calender" />
-            <Text clicked={click}>Calender</Text>
-          </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/documents"
-          >
-            <img src={Documents} alt="Documents" />
-            <Text clicked={click}>Documents</Text>
-          </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/projects"
-          >
-            <img src={Projects} alt="Projects" />
-            <Text clicked={click}>Projects</Text>
+            <img src={PowerOff} alt="logout" />
+            <Text clicked={click}>Log Out</Text>
           </Item>
         </SlickBar>
-
-        <Profile clicked={profileClick}>
-          <img
-            onClick={() => handleProfileClick()}
-            src="https://picsum.photos/200"
-            alt="Profile"
-          />
+        {/* <Profile clicked={profileClick}>
+          <Logout>
+            <img src={PowerOff} alt="logout" />
+          </Logout>
           <Details clicked={profileClick}>
             <Name>
               <h4>Jhon&nbsp;Doe</h4>
@@ -294,7 +304,7 @@ const Sidebar = () => {
               <img src={PowerOff} alt="logout" />
             </Logout>
           </Details>
-        </Profile>
+        </Profile> */}
       </SidebarContainer>
     </Container>
   );
