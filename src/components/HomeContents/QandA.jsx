@@ -62,7 +62,7 @@ export const QandA = ({ flag }) => {
             <div className="user">
               <p>
                 {e.admin_name || e.admin_email} -
-                <label htmlFor=""> Follow</label>
+                {/* <label htmlFor=""> Follow</label> */}
               </p>
 
               <span>
@@ -97,13 +97,13 @@ export const QandA = ({ flag }) => {
 };
 
 const Container = styled.div`
-  width: 35.625rem;
+  width: 45vw;
   margin-left: 1rem;
   margin-top: 1rem;
   background-color: #ffffff;
   border: 0.5px solid rgb(222, 224, 225);
-  box-shadow: 0px 0px 5px rgb(222, 224, 225);
-  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
 
   .icon-group-container {
     padding: 0 1rem;

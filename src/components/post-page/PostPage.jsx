@@ -155,7 +155,7 @@ export const PostPage = () => {
                     </g>
                   </svg>
                 </div>
-                <div>Follow</div>
+                {/* <div>Follow</div> */}
               </div>
               <div className="answer-icon-inner">
                 <div>

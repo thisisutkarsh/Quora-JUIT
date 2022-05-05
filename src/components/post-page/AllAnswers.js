@@ -50,7 +50,7 @@ const AllAnswers = ({ handleSetAnswerCount, questionId: id }) => {
                 <div className="user">
                   <p>
                     {answer.user_name || answer.user_email}{" "}
-                    <label htmlFor=""> Follow</label>
+                    {/* <label htmlFor=""> Follow</label> */}
                   </p>
                   <span>
                     {dayjs(Date.now() - answer.timestamp).format("hh") < 48

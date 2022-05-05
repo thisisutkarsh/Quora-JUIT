@@ -1,8 +1,5 @@
 import styled from "styled-components";
-import { CreateSpace } from "./CreateSpace";
 import { QandA } from "./QandA";
-import { SpacesTofollow } from "./SpacesTofollow";
-import place from "./q-a-placeholder.png";
 
 export const HomeMain = () => {
   return (

@@ -8,11 +8,18 @@ import Calender from "./data/sceduled.svg";
 import Projects from "./data/starred.svg";
 import Documents from "./data/draft.svg";
 import PowerOff from "./data/power-off-solid.svg";
+import chatIco from "./data/chat.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { login, logout, selectUser } from "../../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../config/firebase.config";
+import { Avatar } from "@mui/material";
+// import Menu from "@mui/material/Menu";
+// import MenuItem from "@mui/material/MenuItem";
+// import Divider from "@mui/material/Divider";
+// import ListItemIcon from "@mui/material/ListItemIcon";
+// import { Link } from "react-router-dom";
 
 const Container = styled.div`
   position: fixed;
@@ -21,13 +28,17 @@ const Container = styled.div`
     border-right: 4px solid var(--white);
 
     img {
-      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
-        brightness(103%) contrast(103%);
+      ${
+        "" /* filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
+        brightness(103%) contrast(103%); */
+      }
 
       ${
         "" /* filter: invert(3%) sepia(38%) saturate(6550%) hue-rotate(227deg)
         brightness(87%) contrast(99%); */
       }
+      filter: invert(46%) sepia(76%) saturate(4340%) hue-rotate(199deg)
+        brightness(101%) contrast(102%);
     }
   }
 `;
@@ -70,9 +81,9 @@ const Button = styled.button`
 
 const SidebarContainer = styled.div`
   background-color: var(--white);
-  width: 3.5rem;
-  height: 80vh;
-  margin-top: 1rem;
+  width: 3.8rem;
+  height: 86vh;
+  margin-top: 25px;
   border-radius: 0 30px 30px 0;
   padding: 1rem 0;
 
@@ -81,6 +92,7 @@ const SidebarContainer = styled.div`
   align-items: center;
   justify-content: center;
   ${"" /* position: relative; */}
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 const Logo = styled.div`
@@ -117,9 +129,9 @@ const Item = styled(NavLink)`
   width: 100%;
   padding: 1rem 0;
   cursor: pointer;
-
   display: flex;
   padding-left: 1rem;
+  ${"" /* margin-top: 60px; */}
 
   &:hover {
     border-right: 4px solid #1a83ff;
@@ -129,31 +141,38 @@ const Item = styled(NavLink)`
         "" /* filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
         brightness(103%) contrast(103%); */
       }
-      filter: invert(46%) sepia(76%) saturate(4340%) hue-rotate(199deg)
-        brightness(101%) contrast(102%);
+      ${
+        "" /* filter: invert(46%) sepia(76%) saturate(4340%) hue-rotate(199deg)
+        brightness(101%) contrast(102%); */
+      }
     }
   }
-  &:active {
-    border-right: 4px solid #1a83ff;
-
+  &:focus {
+    ${"" /* border-right: 4px solid #1a83ff; */}
     img {
       ${
         "" /* filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
         brightness(103%) contrast(103%); */
       }
-      filter: invert(46%) sepia(76%) saturate(4340%) hue-rotate(199deg)
-        brightness(101%) contrast(102%);
+      ${
+        "" /* filter: invert(46%) sepia(76%) saturate(4340%) hue-rotate(199deg)
+        brightness(101%) contrast(102%); */
+      }
     }
   }
 
   img {
     width: 2rem;
     height: auto;
-    filter: invert(92%) sepia(4%) saturate(1033%) hue-rotate(169deg)
-      brightness(78%) contrast(85%);
+    ${
+      "" /* filter: invert(92%) sepia(4%) saturate(1033%) hue-rotate(169deg)
+      brightness(78%) contrast(85%); */
+    }
     ${
       "" /* filter: invert(10%) sepia(7%) saturate(911%) hue-rotate(191deg) brightness(91%) contrast(93%); */
     }
+    filter: invert(46%) sepia(76%) saturate(4340%) hue-rotate(199deg)
+        brightness(101%) contrast(102%);
   }
 `;
 
@@ -251,17 +270,38 @@ const Sidebar = () => {
 
   const [profileClick, setprofileClick] = useState(false);
   const handleProfileClick = () => setprofileClick(!profileClick);
+  // profile section
+  const [anchorEl1, setAnchorEl1] = React.useState(null);
+  const open1 = Boolean(anchorEl1);
+  const handleClick1 = (event) => {
+    setAnchorEl1(event.currentTarget);
+  };
+  const handleClose1 = () => {
+    setAnchorEl1(null);
+  };
 
   return (
     <Container>
       {/* <Button clicked={click} onClick={() => handleClick()}></Button> */}
+      {/* <NavLink to="/home">
+        <Logo>
+          <img src={logo} alt="logo" />
+        </Logo>
+      </NavLink> */}
       <SidebarContainer>
-        <NavLink to="/home">
-          <Logo>
-            <img src={logo} alt="logo" />
-          </Logo>
-        </NavLink>
         <SlickBar clicked={click}>
+          <div className="qNav_avatar" onClick={handleClick1}>
+            <Avatar
+              className="Avatar"
+              // sx={{ width: 24, height: 24 }}
+              src={
+                user
+                  ? user.photoURL
+                  : "https://qsfs.fs.quoracdn.net/-4-images.new_grid.profile_default.png-26-688c79556f251aa0.png"
+              }
+            />
+          </div>
+
           <Item
             onClick={() => setClick(false)}
             exact

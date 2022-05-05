@@ -1,31 +1,34 @@
 .Nav {
   padding: 1px;
   background-color: white;
-  max-height: 50px;
+  height: 55px;
   position: sticky;
   z-index: 1000;
   top: 0;
+  /* display: flex; */
   box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.5);
+
 }
 
 .qNav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1px;
   max-width: 970px;
-  max-height: 50px;
+  max-height: 90px;
   position: sticky;
-  margin: auto;
+  margin: 0 auto;
+  padding-top: 7px;
 }
 
-.qNav_logo>img {
+/* .qNav_logo>img {
   height: 25px;
   margin-right: 10px;
   width: 87px;
   margin-top: 5px;
   cursor: pointer;
-}
+} */
 
 .qNav_icons {
   display: flex;
@@ -74,6 +77,8 @@
 
 .qNav_avatar {
   cursor: pointer;
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 
 .qNav_Rem {
@@ -90,12 +95,12 @@
 }
 
 .qNav_Rem>.svgIcon:hover {
-  color: #b92b27;
+  color: #09468d;
 }
 
 .qNav_Rem>.MuiButton-root {
   color: white;
-  background: #b92b27;
+  background: #1883ff;
   text-transform: inherit;
   border-radius: 20px;
   margin-left: 25px;
@@ -103,7 +108,7 @@
 
 .qNav_Rem>.MuiButton-root:hover {
   color: #ffffff;
-  background: #8f1f1b;
+  background: #09468d;
 }
 
 /* .active .svgIcon {

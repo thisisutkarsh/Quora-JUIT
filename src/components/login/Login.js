@@ -140,9 +140,6 @@ const Login = () => {
           </RightSection>
         </Form>
         <Footer>
-          <Languages>
-            <span>हिन्दी</span> <span>मराठी</span>
-          </Languages>
           <About>
             <p>
               <span>About</span>・<span>Careers</span>・<span>Privacy</span>・
