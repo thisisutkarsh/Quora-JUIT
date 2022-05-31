@@ -7,8 +7,8 @@ import { MyComment } from "./MyComment";
 import { GoArrowDown, GoArrowUp } from "react-icons/go";
 import { useState } from "react";
 import { useEffect } from "react";
-import db from "../../config/firebase.config";
-import { getSingleData, updateData } from "../../utils/api/postData";
+// import db from "../../config/firebase.config";
+import { getSingleData, updateData } from "../../api/postData";
 
 export const IconGrp = ({
   handleComments,
@@ -104,20 +104,7 @@ export const IconGrp = ({
             <div className="hide">Comment</div>
           </div>
         </div>
-        <div className="rightIcons">
-          {/* <div>
-            <RoundedRightBtns>
-              <RightShare />
-            </RoundedRightBtns>
-            <div className="hide">More sharing options</div>
-          </div>
-          <div>
-            <RoundedRightBtns>
-              <RightDots />
-            </RoundedRightBtns>
-            <div className="hide">More</div>
-          </div> */}
-        </div>
+        <div className="rightIcons"></div>
       </Icongroup>
       {id === showComments && toogle && <MyComment />}
     </>
@@ -268,22 +255,22 @@ const DownvoteFilled = styled(GoArrowDown)`
   height: 1.5rem;
   color: #2e69ff;
 `;
-const Refresh = styled(HiOutlineRefresh)`
-  font-size: 1.2rem;
-`;
+// const Refresh = styled(HiOutlineRefresh)`
+//   font-size: 1.2rem;
+// `;
 const Comment = styled(BiMessageRounded)`
   font-size: 1.2rem;
 `;
 
-const RightShare = styled(RiShareForwardLine)`
-  font-size: 1.3rem;
-  color: #636466;
-`;
+// const RightShare = styled(RiShareForwardLine)`
+//   font-size: 1.3rem;
+//   color: #636466;
+// `;
 
-const RightDots = styled(BiDotsHorizontalRounded)`
-  font-size: 1.3rem;
-  color: #636466;
-`;
+// const RightDots = styled(BiDotsHorizontalRounded)`
+//   font-size: 1.3rem;
+//   color: #636466;
+// `;
 
 const RoundBtn = styled.div`
   display: flex;
@@ -311,14 +298,14 @@ const RoundBtn = styled.div`
   }
 `;
 
-const RoundedRightBtns = styled(RoundBtn)`
-  width: 30px;
+// const RoundedRightBtns = styled(RoundBtn)`
+//   width: 30px;
 
-  &:hover {
-    background: #eeeded;
-  }
-  &:hover + .hide {
-    display: block;
-    background: #464444;
-  }
-`;
+//   &:hover {
+//     background: #eeeded;
+//   }
+//   &:hover + .hide {
+//     display: block;
+//     background: #464444;
+//   }
+// `;

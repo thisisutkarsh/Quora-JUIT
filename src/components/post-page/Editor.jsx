@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState, convertToRaw } from "draft-js";
 import styled from "styled-components";
-import { postData, updateData } from "../../utils/api/postData";
+import { postData, updateData } from "../../api/postData";
 
 import "./Editor.css";
 

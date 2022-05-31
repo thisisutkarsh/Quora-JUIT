@@ -1,25 +1,17 @@
 import React, { useState } from "react";
 
 //All the svg files
-import logo from "./data/q-logo.png";
-import Home from "./data/home-solid.svg";
-import Team from "./data/social.svg";
-import Calender from "./data/sceduled.svg";
-import Projects from "./data/starred.svg";
-import Documents from "./data/draft.svg";
-import PowerOff from "./data/power-off-solid.svg";
-import chatIco from "./data/chat.svg";
+// import logo from "./svg/q-logo.png";
+import Home from "./svg/home-solid.svg";
+import Projects from "./svg/starred.svg";
+import PowerOff from "./svg/power-off-solid.svg";
+// import chatIco from "./svg/chat.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { login, logout, selectUser } from "../../features/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from "../../features/userSlice";
+import { useSelector } from "react-redux";
 import { auth } from "../../config/firebase.config";
 import { Avatar } from "@mui/material";
-// import Menu from "@mui/material/Menu";
-// import MenuItem from "@mui/material/MenuItem";
-// import Divider from "@mui/material/Divider";
-// import ListItemIcon from "@mui/material/ListItemIcon";
-// import { Link } from "react-router-dom";
 
 const Container = styled.div`
   position: fixed;
@@ -43,41 +35,41 @@ const Container = styled.div`
   }
 `;
 
-const Button = styled.button`
-  background-color: var(--white);
-  border: none;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  margin: 0.5rem 0 0 0.5rem;
-  cursor: pointer;
+// const Button = styled.button`
+//   background-color: var(--white);
+//   border: none;
+//   width: 2.5rem;
+//   height: 2.5rem;
+//   border-radius: 50%;
+//   margin: 0.5rem 0 0 0.5rem;
+//   cursor: pointer;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
 
-  position: relative;
+//   position: relative;
 
-  &::before,
-  &::after {
-    content: "";
-    background-color: var(--black);
-    height: 2px;
-    width: 1rem;
-    position: absolute;
-    transition: all 0.3s ease;
-  }
+//   &::before,
+//   &::after {
+//     content: "";
+//     background-color: var(--black);
+//     height: 2px;
+//     width: 1rem;
+//     position: absolute;
+//     transition: all 0.3s ease;
+//   }
 
-  &::before {
-    top: ${(props) => (props.clicked ? "1.5" : "1rem")};
-    transform: ${(props) => (props.clicked ? "rotate(135deg)" : "rotate(0)")};
-  }
+//   &::before {
+//     top: ${(props) => (props.clicked ? "1.5" : "1rem")};
+//     transform: ${(props) => (props.clicked ? "rotate(135deg)" : "rotate(0)")};
+//   }
 
-  &::after {
-    top: ${(props) => (props.clicked ? "1.2" : "1.5rem")};
-    transform: ${(props) => (props.clicked ? "rotate(-135deg)" : "rotate(0)")};
-  }
-`;
+//   &::after {
+//     top: ${(props) => (props.clicked ? "1.2" : "1.5rem")};
+//     transform: ${(props) => (props.clicked ? "rotate(-135deg)" : "rotate(0)")};
+//   }
+// `;
 
 const SidebarContainer = styled.div`
   background-color: var(--white);
@@ -183,96 +175,98 @@ const Text = styled.span`
   transition: all 0.3s ease;
 `;
 
-const Profile = styled.div`
-  width: ${(props) => (props.clicked ? "14rem" : "3rem")};
-  height: 3rem;
+// const Profile = styled.div`
+//   width: ${(props) => (props.clicked ? "14rem" : "3rem")};
+//   height: 3rem;
 
-  padding: 0.5rem 1rem;
-  /* border: 2px solid var(--white); */
-  border-radius: 20px;
+//   padding: 0.5rem 1rem;
+//   /* border: 2px solid var(--white); */
+//   border-radius: 20px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: ${(props) => (props.clicked ? "9rem" : "0")};
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-left: ${(props) => (props.clicked ? "9rem" : "0")};
 
-  background-color: var(--white);
-  color: var(--black);
+//   background-color: var(--white);
+//   color: var(--black);
 
-  transition: all 0.3s ease;
+//   transition: all 0.3s ease;
 
-  img {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    cursor: pointer;
+//   img {
+//     width: 2.5rem;
+//     height: 2.5rem;
+//     border-radius: 50%;
+//     cursor: pointer;
 
-    &:hover {
-      border: 2px solid var(--grey);
-      padding: 2px;
-    }
-  }
-`;
+//     &:hover {
+//       border: 2px solid var(--grey);
+//       padding: 2px;
+//     }
+//   }
+// `;
 
-const Details = styled.div`
-  display: ${(props) => (props.clicked ? "flex" : "none")};
-  justify-content: space-between;
-  align-items: center;
-`;
+// const Details = styled.div`
+//   display: ${(props) => (props.clicked ? "flex" : "none")};
+//   justify-content: space-between;
+//   align-items: center;
+// `;
 
-const Name = styled.div`
-  padding: 0 1.5rem;
+// const Name = styled.div`
+//   padding: 0 1.5rem;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
 
-  h4 {
-    display: inline-block;
-  }
+//   h4 {
+//     display: inline-block;
+//   }
 
-  a {
-    font-size: 0.8rem;
-    text-decoration: none;
-    color: var(--grey);
+//   a {
+//     font-size: 0.8rem;
+//     text-decoration: none;
+//     color: var(--grey);
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`;
+//     &:hover {
+//       text-decoration: underline;
+//     }
+//   }
+// `;
 
-const Logout = styled.button`
-  border: none;
-  width: 2rem;
-  height: 2rem;
-  background-color: transparent;
+// const Logout = styled.button`
+//   border: none;
+//   width: 2rem;
+//   height: 2rem;
+//   background-color: transparent;
 
-  img {
-    width: 100%;
-    height: auto;
-    filter: invert(15%) sepia(70%) saturate(6573%) hue-rotate(2deg)
-      brightness(100%) contrast(126%);
-    transition: all 0.3s ease;
-    &:hover {
-      border: none;
-      padding: 0;
-      opacity: 0.5;
-    }
-  }
-`;
+//   img {
+//     width: 100%;
+//     height: auto;
+//     filter: invert(15%) sepia(70%) saturate(6573%) hue-rotate(2deg)
+//       brightness(100%) contrast(126%);
+//     transition: all 0.3s ease;
+//     &:hover {
+//       border: none;
+//       padding: 0;
+//       opacity: 0.5;
+//     }
+//   }
+// `;
 
 const Sidebar = () => {
   const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+  // const handleClick = () => setClick(!click);
   const user = useSelector(selectUser);
 
-  const [profileClick, setprofileClick] = useState(false);
-  const handleProfileClick = () => setprofileClick(!profileClick);
+  // const [profileClick, setprofileClick] = useState(false);
+  // const handleProfileClick = () => setprofileClick(!profileClick);
+
   // profile section
   const [anchorEl1, setAnchorEl1] = React.useState(null);
-  const open1 = Boolean(anchorEl1);
+
+  // const open1 = Boolean(anchorEl1);
   const handleClick1 = (event) => {
     setAnchorEl1(event.currentTarget);
   };
@@ -305,7 +299,7 @@ const Sidebar = () => {
           <Item
             onClick={() => setClick(false)}
             exact
-            activemClassName="activem"
+            activeClassName="activem"
             to="/home"
           >
             <img src={Home} alt="Home" />
@@ -314,7 +308,7 @@ const Sidebar = () => {
 
           <Item
             onClick={() => setClick(false)}
-            activemClassName="activem"
+            activeClassName="activem"
             to="/answers"
           >
             <img src={Projects} alt="Answers" />
@@ -323,7 +317,7 @@ const Sidebar = () => {
           <Item
             onClick={() => auth.signOut()}
             // sx={{ height: 30, fontSize: "5" }}
-            activemClassName="activem"
+            activeClassName="activem"
             to="/"
           >
             <img src={PowerOff} alt="logout" />

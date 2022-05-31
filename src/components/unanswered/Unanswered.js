@@ -1,14 +1,12 @@
 import React from "react";
 import { QandA } from "../HomeContents/QandA";
 import styled from "styled-components";
-import qPlace from "./question-placeholder.png";
 
 const Unanswered = () => {
   return (
     <Container>
       <div className="sub-container">
         <QandA flag />
-        {/* <img src={qPlace}></img> */}
       </div>
     </Container>
   );

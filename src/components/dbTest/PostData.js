@@ -4,7 +4,7 @@ import db from "../../config/firebase.config";
 // import { Markup } from "interweave";
 // import { Answer } from "./Answer";
 
-import { deleteData, getData, postData } from "../../utils/api/postData";
+import { deleteData, getData, postData } from "../../api/postData";
 
 export const PostData = () => {
   const [question, setQuestion] = React.useState("");

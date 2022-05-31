@@ -5,7 +5,6 @@ import { Home, Login } from "../components";
 import { Error } from "../components/error/Error.jsx";
 import { Navbar } from "../components/Navbar/Navbar";
 import SideNav from "../components/Navbar/SideNav.jsx";
-import { Notification } from "../components/Notifications/Notification";
 import { PostPage } from "../components/post-page/PostPage";
 import Chat from "../components/sendMessage/Chat";
 import Unanswered from "../components/unanswered/Unanswered";
@@ -56,18 +55,6 @@ const Router = () => {
             <Navbar />
             <SideNav />
             <PostPage />
-          </>
-        ) : (
-          <Redirect to="/" />
-        )}
-      </Route>
-
-      <Route path="/notifications" exact>
-        {user ? (
-          <>
-            <Navbar />
-            <SideNav />
-            <Notification />
           </>
         ) : (
           <Redirect to="/" />

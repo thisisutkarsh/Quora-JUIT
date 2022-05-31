@@ -63,7 +63,7 @@ const Login = () => {
                             className="logo_fill"
                         />
                     </svg> */}
-          <img src={logoImg}></img>
+          <img alt="logo" src={logoImg}></img>
           <p>A place to share knowledge and better understand the world</p>
         </Logo>
         <Form>

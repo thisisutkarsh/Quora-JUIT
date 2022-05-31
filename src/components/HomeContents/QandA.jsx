@@ -3,7 +3,6 @@ import styled from "styled-components";
 import db from "../../config/firebase.config";
 import { AllComments } from "./AllComments";
 import Answers from "./Answers";
-import { IconGrp } from "./IconGrp";
 import { Link } from "react-router-dom";
 import { selectUser } from "../../features/userSlice";
 import { useSelector } from "react-redux";
